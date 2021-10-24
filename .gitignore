@@ -40,3 +40,5 @@ bld/
 # SQL Server files
 *.mdf
 *.ldf
+
+secrets.md

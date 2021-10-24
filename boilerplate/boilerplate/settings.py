@@ -20,7 +20,8 @@ SECRET_KEY = environ.get('SECRET_KEY', default='foo')
 
 DEBUG = int(environ.get('DEBUG', default=0))
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1',
+                 'intense-reef-35485.herokuapp.com']
 
 
 # Application definition

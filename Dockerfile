@@ -8,7 +8,6 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV DEBUG 0
-ENV SECRET_KEY "django-insecure-jc)3ymo4411324+g_=!wrgh4n_hb5-h4xuf-5ssgw*%fqm5j-^"
 
 # install psycopg2
 RUN apk update \

@@ -1,8 +1,17 @@
 # boilerplate
 Django + REST boilerplate for future services
 
+## Running the App Locally
+To run the dev server please run the command with the secret key from `secrets.md` file
+```
+SECRET_KEY="secret key" python ./boilerplate/manage.py runserver
+```
+
 ## Docker config
-### Prequisites
+### What is Docker?
+> Docker is a "container" to package applications into standardized units for development and deployment ([Source](https://www.docker.com/resources/what-container))
+
+### Prerequisites
 - Docker is installed and accessible via terminal
 
 How to use Docker to serve the application locally
@@ -28,3 +37,26 @@ Remove the container
 ```
 docker rm boilerplate
 ```
+
+## Docker Config with Heroku
+### What is Heroku?
+Heroku is a cloud platform (PaaS) to build and deploy the application ([Heroku documentation site](https://devcenter.heroku.com/categories/reference)). 
+
+Building the image
+```
+docker build -t registry.heroku.com/intense-reef-35485/web .
+```
+
+Push the Docker container
+```
+docker push registry.heroku.com/intense-reef-35485/web 
+```
+
+Release the image
+```
+heroku container:release -a intense-reef-35485 web
+```
+
+# Notes
+Heroku URLs: https://intense-reef-35485.herokuapp.com/ | https://git.heroku.com/intense-reef-35485.git
+Heroku Tag: intense-reef-35485
