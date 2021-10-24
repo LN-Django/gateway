@@ -8,6 +8,6 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x' 
-      - run: phython ./boilerplate/manage.py test
+      - run: python ./boilerplate/manage.py test
       - run: echo "Printing env variable"
       - run: echo ${{ secrets.APP_NAME }}
