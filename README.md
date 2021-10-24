@@ -58,5 +58,10 @@ heroku container:release -a intense-reef-35485 web
 ```
 
 # Notes
+## Staging
 Heroku URLs: https://intense-reef-35485.herokuapp.com/ | https://git.heroku.com/intense-reef-35485.git
-Heroku Tag: intense-reef-35485
+App name: intense-reef-35485
+
+## Production
+Heroku URLs: https://enigmatic-dusk-38395.herokuapp.com/ | https://git.heroku.com/enigmatic-dusk-38395.git
+App name: enigmatic-dusk-38395
