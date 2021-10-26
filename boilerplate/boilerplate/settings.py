@@ -10,15 +10,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-from pathlib import Path
 from os import environ
+from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+DEBUG = int(environ.get('DEBUG', default=1))
 SECRET_KEY = environ.get('SECRET_KEY', default='foo')
 
-DEBUG = int(environ.get('DEBUG', default=0))
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1',
                  'intense-reef-35485.herokuapp.com',

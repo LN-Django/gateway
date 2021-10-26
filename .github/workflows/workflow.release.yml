@@ -1,0 +1,36 @@
+name: Release Workflow
+on:
+  push:
+      branches:
+        - production
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:  
+      - uses: actions/checkout@v2
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v5.6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create a GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
+  deployment:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to Heroku
+        env: 
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:login 
+      - name: Build Docker Image
+        run: docker build -t registry.heroku.com/${{ secrets.APP_NAME }}/web .
+      - name: Push Docker Container
+        run: docker push registry.heroku.com/${{ secrets.APP_NAME }}/web 
+      - name: Release Image
+        run: heroku container:release -a ${{ secrets.APP_NAME }} web
