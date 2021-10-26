@@ -1,25 +1,27 @@
-name: Workflow
+name: Release Workflow
 on:
-  pull_request:
+  push:
       branches:
-        - main
+        - production
 jobs:
-  test:
+  release:
     runs-on: ubuntu-latest
-    steps:
+    steps:  
       - uses: actions/checkout@v2
-      - name: Setup python 3.9
-        uses: actions/setup-python@v2
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v5.6
         with:
-          python-version: '3.9'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r ./boilerplate/requirements.txt
-      - run: python ./boilerplate/manage.py test
-  deploy-to-heroku:
-    needs: test
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create a GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
+  deployment:
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - uses: actions/checkout@v2
       - name: Login to Heroku
