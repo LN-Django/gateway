@@ -41,4 +41,4 @@ bld/
 *.mdf
 *.ldf
 
-secrets.md
+.env

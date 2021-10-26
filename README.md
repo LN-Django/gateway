@@ -2,9 +2,9 @@
 Django + REST boilerplate for future services
 
 ## Running the App Locally
-To run the dev server please run the command with the secret key from `secrets.md` file
+To run the dev server please run the following command.
 ```
-SECRET_KEY="secret key" python ./boilerplate/manage.py runserver
+ python ./boilerplate/manage.py runserver
 ```
 
 ## Docker config
@@ -59,9 +59,11 @@ heroku container:release -a intense-reef-35485 web
 
 # Notes
 ## Staging
-Heroku URLs: https://intense-reef-35485.herokuapp.com/ | https://git.heroku.com/intense-reef-35485.git
+Heroku URLs: https://intense-reef-35485.herokuapp.com/ | https://git.heroku.com/intense-reef-35485.git.
+
 App name: intense-reef-35485
 
 ## Production
-Heroku URLs: https://enigmatic-dusk-38395.herokuapp.com/ | https://git.heroku.com/enigmatic-dusk-38395.git
+Heroku URLs: https://enigmatic-dusk-38395.herokuapp.com/ | https://git.heroku.com/enigmatic-dusk-38395.git.
+
 App name: enigmatic-dusk-38395
