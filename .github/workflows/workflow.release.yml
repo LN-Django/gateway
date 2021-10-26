@@ -23,13 +23,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Login to Heroku
-        env: 
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:login 
-      - name: Build Docker Image
-        run: docker build -t registry.heroku.com/${{ secrets.PRODUCTION_APP_NAME }}/web .
-      - name: Push Docker Container
-        run: docker push registry.heroku.com/${{ secrets.PRODUCTION_APP_NAME }}/web 
-      - name: Release Image
-        run: heroku container:release -a ${{ secrets.PRODUCTION_APP_NAME }} web
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{ secrets.APP_NAME }}
+          heroku_email: "louisandrew3@gmail.com"
+          usedocker: true
