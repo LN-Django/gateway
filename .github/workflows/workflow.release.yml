@@ -21,7 +21,6 @@ jobs:
           body: ${{ steps.tag_version.outputs.changelog }}
   deployment:
     runs-on: ubuntu-latest
-    environment: production
     steps:
       - uses: actions/checkout@v2
       - name: Login to Heroku
