@@ -7,5 +7,5 @@ class PingView(APIView):
     permission_classes = [permissions.AllowAny]
 
     def get(self, request, format=None):
-        data = {'ping': 'pong!'}
+        data = {'ping': 'pongggggg'}
         return Response(data)
