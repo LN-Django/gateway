@@ -14,3 +14,15 @@ jobs:
           heroku_app_name: ${{ secrets.APP_NAME }}
           heroku_email: "louisandrew3@gmail.com"
           usedocker: true
+  create-release-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create Pull Request to Production Branch
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          branch: production
+          base: main
+          title: "[Release]: ${{github.event.commits[0].message}}"
+          body: "## Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action\n- [] Close and repoen the PR "
