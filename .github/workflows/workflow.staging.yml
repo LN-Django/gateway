@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: main
+          ref: production
       - name: Create Pull Request to Production Branch
         uses: peter-evans/create-pull-request@v3
         with:
