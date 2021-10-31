@@ -17,12 +17,14 @@ jobs:
   create-release-pr:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
         with:
           ref: production
       - name: Create Pull Request to Production Branch
         uses: peter-evans/create-pull-request@v3
         with:
+          base: main
           token: ${{ secrets.GH_TOKEN }}
           title: "[Release]: ${{github.event.commits[0].message}}"
           body: "## Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action\n- [] Close and repoen the PR "
