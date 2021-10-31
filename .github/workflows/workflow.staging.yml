@@ -17,15 +17,30 @@ jobs:
   create-release-pr:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
+      - name: Run the Action
+        uses: devops-infra/action-pull-request@v0.4.2
         with:
-          ref: main
-      - name: Create Pull Request to Production Branch
-        uses: peter-evans/create-pull-request@v3
-        with:
-          branch-suffix: random
-          base: production
-          token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GH_TOKEN }}
+          source_branch: main
+          target_branch: production
           title: "[Release]: ${{github.event.commits[0].message}}"
-          body: "## Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action\n- [] Close and repoen the PR "
+          template: .github/PULL_REQUEST_TEMPLATE.md
+          body: "## Automated PR by GitHub action\n- [] Close and repoen the PR "
+          get_diff: true
+          ignore_users: "dependabot"
+  # create-release-pr:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: checkout
+  #       uses: actions/checkout@v2
+  #       with:
+  #         ref: main
+  #     - name: Create Pull Request to Production Branch
+  #       uses: peter-evans/create-pull-request@v3
+  #       with:
+  #         branch-suffix: random
+  #         base: production
+  #         token: ${{ secrets.GH_TOKEN }}
+  #         title: "[Release]: ${{github.event.commits[0].message}}"
+  #         body: "## Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action\n- [] Close and repoen the PR "
+     
