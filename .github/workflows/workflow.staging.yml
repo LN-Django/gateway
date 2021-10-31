@@ -20,11 +20,12 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
         with:
-          ref: production
+          ref: main
       - name: Create Pull Request to Production Branch
         uses: peter-evans/create-pull-request@v3
         with:
-          base: main
+          branch-suffix: random
+          base: production
           token: ${{ secrets.GH_TOKEN }}
           title: "[Release]: ${{github.event.commits[0].message}}"
           body: "## Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action\n- [] Close and repoen the PR "
