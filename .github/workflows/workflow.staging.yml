@@ -22,7 +22,6 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GH_TOKEN }}
-          branch: main
           base:  production
           title: "[Release]: ${{github.event.commits[0].message}}"
           body: "## Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action\n- [] Close and repoen the PR "
