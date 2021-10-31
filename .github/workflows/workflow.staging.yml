@@ -24,7 +24,6 @@ jobs:
           source_branch: main
           target_branch: production
           title: "[Release]: ${{github.event.commits[0].message}}"
-          template: .github/PULL_REQUEST_TEMPLATE.md
           body: "## Automated PR by GitHub action\n- [] Close and repoen the PR "
           get_diff: true
           ignore_users: "dependabot"
