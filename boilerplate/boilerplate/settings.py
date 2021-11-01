@@ -19,9 +19,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 DEBUG = int(environ.get('DEBUG', default=1))
-SECRET_KEY = environ.get('SECRET_KEY', default='foo')
+SECRET_KEY = environ.get('DJANGO_SECRET_KEY', default='foo')
 
-app_url = environ.get('APP_NAME', default="test") + '.herokuapp.com'
+app_url = environ.get('DJANGO_APP_NAME', default="test") + '.herokuapp.com'
 ALLOWED_HOSTS = ['localhost', '127.0.0.1',
                  app_url]
 
