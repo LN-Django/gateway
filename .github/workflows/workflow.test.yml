@@ -17,4 +17,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r ./boilerplate/requirements.txt
       - run: python ./boilerplate/manage.py test
+        env:
+          APP_NAME: "test-app"
   
