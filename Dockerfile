@@ -5,6 +5,7 @@ FROM python:3.9-alpine
 WORKDIR /app
 
 ARG APP_NAME
+ARG SECRET_KEY
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1

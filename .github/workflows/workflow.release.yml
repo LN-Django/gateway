@@ -31,5 +31,7 @@ jobs:
           usedocker: true
           docker_build_args: |
             APP_NAME
+            SECRET_KEY
         env:
           APP_NAME: ${{ secrets.PRODUCTION_APP_NAME }}
+          SECRET_KEY: ${{secrets.SECRET_KEY}}
