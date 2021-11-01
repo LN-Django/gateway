@@ -12,6 +12,9 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV DEBUG 0
 
+ENV APP_NAME APP_NAME
+ENV SECRET_KEY SECRET_KEY
+
 # install psycopg2
 RUN apk update \
     && apk add --virtual build-deps gcc python3-dev musl-dev \
