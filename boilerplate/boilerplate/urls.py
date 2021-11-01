@@ -9,11 +9,11 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Snippets API",
-        default_version='v1',
-        description="Test description",
+        title="Boilerplate API",
+        default_version='v0.0.1',
+        description="Sample API to boilerplate future services.",
         terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="contact@snippets.local"),
+        contact=openapi.Contact(email="louisandrew3@gmail.com"),
         license=openapi.License(name="BSD License"),
     ),
     public=True,
