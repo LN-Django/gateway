@@ -35,4 +35,4 @@ RUN adduser -D myuser
 USER myuser
 
 # run gunicorn
-CMD cd ./boilerplate && gunicorn boilerplate.wsgi:application --bind 0.0.0.0:$PORT
+CMD cd ./boilerplate && python manage.py collectstatic && gunicorn boilerplate.wsgi:application --bind 0.0.0.0:$PORT
