@@ -15,20 +15,15 @@ from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 DEBUG = int(environ.get('DEBUG', default=1))
 SECRET_KEY = environ.get('SECRET_KEY', default='foo')
 
-
+app_url = environ.get('APP_NAME') + '.herokuapp.com'
 ALLOWED_HOSTS = ['localhost', '127.0.0.1',
-                 'intense-reef-35485.herokuapp.com',
-                 'enigmatic-dusk-38395.herokuapp.com']
-
-
-# Application definition
+                 app_url]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -38,7 +33,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'restapi',
-    'rest_framework'
+    'rest_framework',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
