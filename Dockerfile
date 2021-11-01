@@ -4,6 +4,8 @@ FROM python:3.9-alpine
 # set work directory
 WORKDIR /app
 
+ARG APP_NAME
+
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
