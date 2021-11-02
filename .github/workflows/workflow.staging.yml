@@ -17,9 +17,11 @@ jobs:
           docker_build_args: |
             APP_NAME
             SECRET_KEY
+            REMOTE
         env: 
           APP_NAME: ${{ secrets.APP_NAME }}
           SECRET_KEY: ${{secrets.SECRET_KEY}}
+          REMOTE: 1
   create-release-pr:
     runs-on: ubuntu-latest
     steps:

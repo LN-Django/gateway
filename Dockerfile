@@ -4,14 +4,16 @@ FROM python:3.9-alpine
 # set work directory
 WORKDIR /app
 
+# Sets whether the app is run on a remote system
+ARG REMOTE=0 
 ARG APP_NAME
 ARG SECRET_KEY
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV DEBUG 0
 
+ENV DEBUG 0=$REMOTE
 ENV DJANGO_APP_NAME=$APP_NAME
 ENV DJANGO_SECRET_KEY=$SECRET_KEY
 
@@ -23,7 +25,6 @@ RUN apk update \
     && apk del build-deps
 
 # install dependencies
-
 COPY ./boilerplate/requirements.txt .
 RUN pip install -r requirements.txt
 
