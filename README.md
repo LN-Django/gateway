@@ -63,7 +63,7 @@ heroku container:release -a intense-reef-35485 web
 **Staging**: https://intense-reef-35485.herokuapp.com/api/v1/swagger
 
 ~~**Production**: https://enigmatic-dusk-38395.herokuapp.com/api/v1/swagger~~
-We discontinued the production environment
+**Note: We discontinued the production environment**
 
 ## CI/CD Pipeline
 For this project, CI/CD is also implemented using [Github Actions](https://github.com/features/actions). Please take a look into the diagram below to see more about the CI/CD pipeline.
