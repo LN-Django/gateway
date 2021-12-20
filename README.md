@@ -1,5 +1,5 @@
-# boilerplate
-Django + REST boilerplate for future services
+# API Gateway
+API Gateway service to act as a gateway for all public services on this project.
 
 ## Running the App Locally
 To run the dev server please run the following command.
@@ -60,7 +60,7 @@ heroku container:release -a intense-reef-35485 web
 
 ## Demo
 
-**Staging**: https://intense-reef-35485.herokuapp.com/api/v1/swagger
+**Staging**: **TODO**
 
 ~~**Production**: https://enigmatic-dusk-38395.herokuapp.com/api/v1/swagger~~
 **Note: We discontinued the production environment**
