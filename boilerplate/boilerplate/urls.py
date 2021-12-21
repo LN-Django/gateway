@@ -16,4 +16,5 @@ docs_url = protocol + "://" + docs_base_url + "/api/v1"
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('restapi.urls')),
+    url(r'', include('api_gateway.urls')),
 ]
