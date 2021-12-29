@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'restapi',
     'api_gateway',
     'rest_framework',
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [

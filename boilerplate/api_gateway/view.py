@@ -33,6 +33,6 @@ class ProductInfoView(APIView):
     def get(self, request, product_id, format=None):
         service = services['product_info']
         external_response = api_request.get(
-            service.endpoint.replace("<product_id>", str(product_id)))
+            service.endpoint.replace("{product_id}", str(product_id)))
 
         return Response(external_response.json(), status=external_response.status_code)
