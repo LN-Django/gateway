@@ -45,22 +45,24 @@ Heroku is a cloud platform (PaaS) to build and deploy the application ([Heroku d
 
 Building the image
 ```
-docker build -t registry.heroku.com/intense-reef-35485/web .
+docker build -t registry.heroku.com/stormy-anchorage-99325/web .
 ```
 
 Push the Docker container
 ```
-docker push registry.heroku.com/intense-reef-35485/web 
+docker push registry.heroku.com/stormy-anchorage-99325/web 
 ```
 
 Release the image
 ```
-heroku container:release -a intense-reef-35485 web
+heroku container:release -a stormy-anchorage-99325 web
 ```
 
 ## Demo
+**Note**: Swagger UI is not available yet.
 
-**Staging**: **TODO**
+
+**Staging**: https://stormy-anchorage-99325.herokuapp.com/api/v1/swagger
 
 ~~**Production**: https://enigmatic-dusk-38395.herokuapp.com/api/v1/swagger~~
 **Note: We discontinued the production environment**
