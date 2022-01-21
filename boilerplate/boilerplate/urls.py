@@ -8,10 +8,6 @@ from drf_yasg.views import get_schema_view
 
 from api_gateway.schema_generator import CustomSchemaGenerator
 
-
-# ! Cannot be found. @see https://stackoverflow.com/questions/47563013/unable-to-import-path-from-django-urls
-# from django.urls import path
-
 app_name = environ.get('DJANGO_APP_NAME', default="local")
 
 protocol = 'http' if environ.get('DEBUG', default=1) == 1 else 'https'
@@ -21,9 +17,9 @@ docs_url = protocol + "://" + docs_base_url + "/api/v1"
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="App Service API",
+        title="Gateway API",
         default_version='v0.0.1',
-        description="Application Service",
+        description="Gateway for application service, calculator service, and storage",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="louisandrew3@gmail.com"),
         license=openapi.License(name="BSD License"),
